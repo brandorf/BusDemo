@@ -1,9 +1,11 @@
 ﻿using System;
+using Ninject.Modules;
+
 namespace BusDemo.Droid.Integrations
 {
-    public class AndroidBindings
+    public class AndroidBindings : NinjectModule
     {
-        public AndroidBindings()
+        public override void Load()
         {
         }
     }

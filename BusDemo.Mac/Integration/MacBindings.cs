@@ -1,9 +1,11 @@
 ﻿using System;
+using Ninject.Modules;
+
 namespace BusDemo.Mac.Integration
 {
-    public class MacBindings
+    public class MacBindings : NinjectModule
     {
-        public MacBindings()
+        public override void Load()
         {
         }
     }

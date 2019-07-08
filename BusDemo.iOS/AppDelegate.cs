@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using BusDemo.Integration;
+using BusDemo.iOS.Integrations;
 using Foundation;
+using Ninject;
 using UIKit;
 
 namespace BusDemo.iOS
@@ -13,6 +15,8 @@ namespace BusDemo.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
+        private StandardKernel _kernel;
+
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -22,8 +26,14 @@ namespace BusDemo.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            var settings = new Ninject.NinjectSettings() { LoadExtensions = false, UseReflectionBasedInjection = true };
+            _kernel = new StandardKernel(settings,
+                new CommonBindings(),
+                new IOSBindings()
+                );
+
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(_kernel.Get<App>());
 
             return base.FinishedLaunching(app, options);
         }

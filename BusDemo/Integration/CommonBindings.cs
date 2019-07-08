@@ -1,9 +1,11 @@
 ﻿using System;
+using Ninject.Modules;
+
 namespace BusDemo.Integration
 {
-    public class CommonBindings
+    public class CommonBindings : NinjectModule
     {
-        public CommonBindings()
+        public override void Load()
         {
         }
     }

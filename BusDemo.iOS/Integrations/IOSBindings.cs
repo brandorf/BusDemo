@@ -1,9 +1,11 @@
 ﻿using System;
+using Ninject.Modules;
+
 namespace BusDemo.iOS.Integrations
 {
-    public class IOSBindings
+    public class IOSBindings : NinjectModule
     {
-        public IOSBindings()
+        public override void Load()
         {
         }
     }
