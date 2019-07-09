@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -12,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using BusDemo.ViewModels;
+using Ninject;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,7 +28,7 @@ namespace BusDemo.WIn
         public MainPage()
         {
             this.InitializeComponent();
-            LoadApplication(new BusDemo.App());
+            LoadApplication(App.Kernel.Get<BusDemo.App>());
         }
     }
 }

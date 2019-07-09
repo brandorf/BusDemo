@@ -2,6 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:BusDemo" x:Class="BusDemo.MainPage">
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+        <Label Text="I'm the Bus man!" HorizontalOptions="Center"  />
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+            <Label VerticalOptions="Center" VerticalTextAlignment="Center">Client Name:</Label>
+            <Entry></Entry>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+            <Label VerticalOptions="Center" VerticalTextAlignment="Center">Connect to Bus?</Label>
+            <Switch IsToggled="true" OnColor="Green"   />
+        </StackLayout>
+        <Editor Text="Messages Go Here." HeightRequest="100"
+                IsReadOnly="true" />
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                <Label VerticalOptions="Center" VerticalTextAlignment="Center">Am I Broken?</Label>
+                <Switch IsToggled="false" OnColor="Red"   />
+            </StackLayout>
+        </StackLayout>
+
 </ContentPage>

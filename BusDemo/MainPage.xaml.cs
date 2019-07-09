@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusDemo.ViewModels;
 using Xamarin.Forms;
 
 namespace BusDemo
@@ -13,9 +14,10 @@ namespace BusDemo
     [DesignTimeVisible(true)]
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(MainViewModel dataContext)
         {
             InitializeComponent();
+            this.BindingContext = dataContext;
         }
     }
 }

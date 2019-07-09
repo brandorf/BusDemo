@@ -6,11 +6,11 @@ namespace BusDemo
 {
     public partial class App : Application
     {
-        public App()
+        public App(Page mainPage)
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = mainPage;
         }
 
         protected override void OnStart()
