@@ -1,22 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:BusDemo" x:Class="BusDemo.MainPage">
-    <StackLayout>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:BusDemo"
+             xmlns:converters="clr-namespace:Converters;assembly=Converters"
+             x:Class="BusDemo.MainPage">
+    <ContentPage.Resources>
+        <converters:InvertBool x:Key="inverter"/>
+    </ContentPage.Resources>
+    
+    <StackLayout Padding="20">
         <!-- Place new controls here -->
         <Label Text="I'm the Bus man!" HorizontalOptions="Center"  />
 
         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
             <Label VerticalOptions="Center" VerticalTextAlignment="Center">Client Name:</Label>
-            <Entry></Entry>
+            <Entry WidthRequest="100" Text="{Binding ConnectionName}" IsEnabled="{Binding Connected, Converter={StaticResource inverter}}"></Entry>
         </StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
             <Label VerticalOptions="Center" VerticalTextAlignment="Center">Connect to Bus?</Label>
-            <Switch IsToggled="true" OnColor="Green"   />
+            <Switch IsToggled="{Binding Connected}" OnColor="Green"   />
         </StackLayout>
-        <Editor Text="Messages Go Here." HeightRequest="100"
+        <Editor Text="{Binding Messages}" HeightRequest="100"
                 IsReadOnly="true" />
         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
                 <Label VerticalOptions="Center" VerticalTextAlignment="Center">Am I Broken?</Label>
-                <Switch IsToggled="false" OnColor="Red"   />
+            <Switch OnColor="Red" IsToggled="{Binding IsBroken}"   />
             </StackLayout>
         </StackLayout>
 
