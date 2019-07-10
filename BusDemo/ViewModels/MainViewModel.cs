@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using BusDemo.Annotations;
 using BusDemo.Services;
 
 namespace BusDemo.ViewModels

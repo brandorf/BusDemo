@@ -9,7 +9,6 @@ using Android.OS;
 using Ninject;
 using BusDemo.Integration;
 using BusDemo.Droid.Integrations;
-
 namespace BusDemo.Droid
 {
 
