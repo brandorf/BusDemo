@@ -31,13 +31,12 @@ namespace BusDemo.Services
                 });
                 x.ReceiveEndpoint(host, _queueName, e =>
                 {
-                    e.Bind("TestQueue");
                     //  e.LoadFrom(_kernel);
                 });
                 x.Durable = true;
-
+                x.OverrideDefaultBusEndpointQueueName($"Local_{connectionName}");
             });
-            
+
             _bus.Start();
         }
 
