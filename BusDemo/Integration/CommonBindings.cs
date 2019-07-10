@@ -14,7 +14,7 @@ namespace BusDemo.Integration
             Bind<BusService>().To<BusService>()
                 .WithConstructorArgument("kernel", Kernel)
                 .WithConstructorArgument("busAddress", AppSettingsManager.Settings["BusAddress"])
-                .WithConstructorArgument("queueName", AppSettingsManager.Settings["DemoQueue"])
+                .WithConstructorArgument("queueName", AppSettingsManager.Settings["QueueName"])
                 .WithConstructorArgument("username", AppSettingsManager.Settings["BusUser"])
                 .WithConstructorArgument("password", AppSettingsManager.Settings["BusPass"]);
 

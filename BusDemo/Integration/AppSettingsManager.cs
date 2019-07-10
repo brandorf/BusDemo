@@ -11,7 +11,7 @@ namespace BusDemo.Integration
         private static AppSettingsManager _instance;
         private JObject _secrets;
 
-        private const string Namespace = "App";
+        private const string Namespace = "BusDemo";
         private const string FileName = "appsettings.json";
 
         private AppSettingsManager()
