@@ -1,10 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
 using MassTransit;
 using Ninject;
 
 namespace BusDemo.Services
 {
-    public class BusService
+    public class BusService : IBusService
     {
         private readonly IKernel _kernel;
         private readonly string _busAddress;
@@ -13,7 +16,7 @@ namespace BusDemo.Services
         private readonly string _password;
         private IBusControl _bus;
 
-        public BusService(IKernel kernel, string busAddress, string queueName, string username, string password)
+        public BusService(IKernel kernel, string busAddress, string queueName, string username, string password) 
         {
             _kernel = kernel;
             _busAddress = busAddress;
@@ -40,19 +43,46 @@ namespace BusDemo.Services
             _bus.Start();
         }
 
+        public void Start()
+        {
+            _bus = Bus.Factory.CreateUsingRabbitMq(x =>
+            {
+                var host = x.Host(new Uri(_busAddress), h => {
+                    h.Username(_username); h.Password(_password);
+                    h.PublisherConfirmation = true;
+                });
+                x.ReceiveEndpoint(host, _queueName, e =>
+                {
+                    //  e.LoadFrom(_kernel);
+                });
+                x.Durable = true;
+            });
+
+            _bus.Start();
+        }
+
+
 
         public void Stop()
         {
             _bus.Stop();
         }
 
-
+        public Task Publish<T>(T message) where T : class
+        {
+            return _bus.Publish<T>(message);
+        }
     }
 
-    public interface IService
+    public interface IBusService
     {
         void Start();
 
+        void Start(string connectionName);
+
         void Stop();
+
+        Task Publish<T>(T message)
+            where T : class;
     }
 }

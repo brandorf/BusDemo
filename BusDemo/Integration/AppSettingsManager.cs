@@ -26,7 +26,7 @@ namespace BusDemo.Integration
                     _secrets = JObject.Parse(json);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 Debug.WriteLine("Unable to load secrets file");
             }

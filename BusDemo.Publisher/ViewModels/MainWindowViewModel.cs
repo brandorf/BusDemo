@@ -1,14 +1,23 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using BusDemo.Messages;
 using BusDemo.Publisher.Annotations;
 using BusDemo.Publisher.Integration;
-using BusDemo.WPF;
+using BusDemo.Services;
 
 namespace BusDemo.Publisher.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        private readonly IBusService _bus;
+
+        public MainWindowViewModel(IBusService bus)
+        {
+            _bus = bus;
+            _bus.Start();
+        }
+
         private ICommand _buttonClick;
         private string _name;
 
@@ -41,6 +50,7 @@ namespace BusDemo.Publisher.ViewModels
         {
             var nameGen = new NameService();
             Name = nameGen.GetName();
+            _bus.Publish(new SendName(Name));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -50,5 +60,6 @@ namespace BusDemo.Publisher.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }

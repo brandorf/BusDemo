@@ -7,9 +7,9 @@ namespace BusDemo.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private readonly BusService _bus;
+        private readonly IBusService _bus;
 
-        public MainViewModel(BusService bus)
+        public MainViewModel(IBusService bus)
         {
             _bus = bus;
         }

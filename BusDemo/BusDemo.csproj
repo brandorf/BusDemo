@@ -31,4 +31,7 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusDemo.Services\BusDemo.Services.csproj" />
+  </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ namespace BusDemo.Integration
         public override void Load()
         {
 
-            Bind<BusService>().To<BusService>()
+            Bind<IBusService>().To<BusService>()
                 .WithConstructorArgument("kernel", Kernel)
                 .WithConstructorArgument("busAddress", AppSettingsManager.Settings["BusAddress"])
                 .WithConstructorArgument("queueName", AppSettingsManager.Settings["QueueName"])
