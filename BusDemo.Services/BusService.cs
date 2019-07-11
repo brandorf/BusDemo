@@ -51,10 +51,6 @@ namespace BusDemo.Services
                     h.Username(_username); h.Password(_password);
                     h.PublisherConfirmation = true;
                 });
-                x.ReceiveEndpoint(host, _queueName, e =>
-                {
-                    //  e.LoadFrom(_kernel);
-                });
                 x.Durable = true;
             });
 
@@ -68,9 +64,14 @@ namespace BusDemo.Services
             _bus.Stop();
         }
 
-        public Task Publish<T>(T message) where T : class
+        public Task Send<T>(T message) where T : class
         {
-            return _bus.Publish<T>(message);
+            return _bus.Send<T>(message);
+        }
+
+        public void Subscribe<T>(MessageHandler<T> handler) where T : class
+        {
+            _bus.ConnectHandler<T>(handler);
         }
     }
 
@@ -82,7 +83,10 @@ namespace BusDemo.Services
 
         void Stop();
 
-        Task Publish<T>(T message)
+        Task Send<T>(T message)
+            where T : class;
+
+        void Subscribe<T>(MessageHandler<T> handler) 
             where T : class;
     }
 }

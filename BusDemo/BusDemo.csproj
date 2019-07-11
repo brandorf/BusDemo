@@ -32,6 +32,7 @@
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusDemo.Messages\BusDemo.Messages.csproj" />
     <ProjectReference Include="..\BusDemo.Services\BusDemo.Services.csproj" />
   </ItemGroup>
 </Project>

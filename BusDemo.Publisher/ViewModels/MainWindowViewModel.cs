@@ -50,7 +50,7 @@ namespace BusDemo.Publisher.ViewModels
         {
             var nameGen = new NameService();
             Name = nameGen.GetName();
-            _bus.Publish(new SendName(Name));
+            _bus.Send(new SendName(Name));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

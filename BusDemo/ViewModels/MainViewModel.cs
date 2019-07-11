@@ -1,7 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using BusDemo.Messages;
 using BusDemo.Services;
+using MassTransit;
 
 namespace BusDemo.ViewModels
 {
@@ -57,6 +60,14 @@ namespace BusDemo.ViewModels
         private void ConnectToBus(string connectionName)
         {
             _bus.Start(connectionName);
+            _bus.Subscribe<SendName>(UpdateSentName);
+
+        }
+
+        private Task UpdateSentName(ConsumeContext<SendName> context)
+        {
+            Messages = $"{context.Message.Name} \n {Messages}";
+            return Task.CompletedTask;
         }
 
         public string ConnectionName

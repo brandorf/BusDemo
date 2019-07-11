@@ -13,6 +13,6 @@ namespace BusDemo.Messages
             Name = name;
         }
 
-        private String Name { get; set; }
+        public String Name { get; set; }
     }
 }
