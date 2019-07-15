@@ -37,7 +37,7 @@ namespace BusDemo.Services
                     //  e.LoadFrom(_kernel);
                 });
                 x.Durable = true;
-                x.OverrideDefaultBusEndpointQueueName($"Local_{connectionName}");
+                x.OverrideDefaultBusEndpointQueueName($"SendOnly_{connectionName}");
             });
 
             _bus.Start();

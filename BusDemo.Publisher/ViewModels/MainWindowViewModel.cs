@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using BusDemo.Messages;
 using BusDemo.Publisher.Annotations;
@@ -15,7 +16,7 @@ namespace BusDemo.Publisher.ViewModels
         public MainWindowViewModel(IBusService bus)
         {
             _bus = bus;
-            _bus.Start();
+            _bus.Start("Publisher");
         }
 
         private ICommand _buttonClick;
@@ -28,7 +29,7 @@ namespace BusDemo.Publisher.ViewModels
                 if (_buttonClick == null)
                 {
                     _buttonClick = new RelayCommand(
-                        param => this.GenerateName()
+                        async param => await this.GenerateName()
                     );
                 }
                 return _buttonClick;
@@ -46,11 +47,17 @@ namespace BusDemo.Publisher.ViewModels
             }
         }
 
-        private void GenerateName()
+        private async Task GenerateName()
         {
             var nameGen = new NameService();
             Name = nameGen.GetName();
-            _bus.Send(new SendName(Name));
+
+            var message = new SendName()
+            {
+                Name = this.Name
+            };
+
+            await _bus.Send<SendName>(message);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
