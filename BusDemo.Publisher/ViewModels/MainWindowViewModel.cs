@@ -26,13 +26,9 @@ namespace BusDemo.Publisher.ViewModels
         {
             get
             {
-                if (_buttonClick == null)
-                {
-                    _buttonClick = new RelayCommand(
-                        async param => await this.GenerateName()
-                    );
-                }
-                return _buttonClick;
+                return _buttonClick ?? (_buttonClick = new RelayCommand(
+                           async param => await this.GenerateNameAsync()
+                       ));
             }
         }
 
@@ -47,17 +43,11 @@ namespace BusDemo.Publisher.ViewModels
             }
         }
 
-        private async Task GenerateName()
+        private async Task GenerateNameAsync()
         {
             var nameGen = new NameService();
             Name = nameGen.GetName();
-
-            var message = new SendName()
-            {
-                Name = this.Name
-            };
-
-            await _bus.Send<SendName>(message);
+            await _bus.Send(new SendName(Name));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
