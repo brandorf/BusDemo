@@ -62,23 +62,8 @@
     <Reference Include="GreenPipes, Version=2.1.4.118, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
       <HintPath>..\packages\GreenPipes.2.1.4\lib\netstandard2.0\GreenPipes.dll</HintPath>
     </Reference>
-    <Reference Include="MassTransit, Version=5.5.3.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\MassTransit.5.5.3-develop.2078\lib\netstandard2.0\MassTransit.dll</HintPath>
-    </Reference>
-    <Reference Include="MassTransit.RabbitMqTransport, Version=5.5.3.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\MassTransit.RabbitMQ.5.5.3-develop.2078\lib\netstandard2.0\MassTransit.RabbitMqTransport.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.PlatformAbstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.PlatformAbstractions.1.1.0\lib\netstandard1.3\Microsoft.Extensions.PlatformAbstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="NewId, Version=3.0.1.17, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\NewId.3.0.1\lib\netstandard1.6\NewId.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.1\lib\netstandard1.3\Newtonsoft.Json.Bson.dll</HintPath>
     </Reference>
     <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
       <HintPath>..\packages\RabbitMQ.Client.5.1.0\lib\netstandard1.5\RabbitMQ.Client.dll</HintPath>
@@ -107,16 +92,34 @@
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
     <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.3.3\lib\netstandard2.0\Ninject.dll</HintPath>
+      <HintPath>..\packages\Ninject.3.3.4\lib\netstandard2.0\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
-      <HintPath>..\packages\Castle.Core.4.2.0\lib\netstandard1.3\Castle.Core.dll</HintPath>
+      <HintPath>..\packages\Castle.Core.4.4.0\lib\netstandard1.5\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Extensions.Factory">
       <HintPath>..\packages\Ninject.Extensions.Factory.3.3.2\lib\netstandard2.0\Ninject.Extensions.Factory.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Extensions.Conventions">
       <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\netstandard2.0\Ninject.Extensions.Conventions.dll</HintPath>
+    </Reference>
+    <Reference Include="NewId">
+      <HintPath>..\packages\NewId.3.0.2\lib\netstandard2.0\NewId.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson">
+      <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.2\lib\netstandard2.0\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MassTransit">
+      <HintPath>..\packages\MassTransit.5.5.4-develop.2097\lib\netstandard2.0\MassTransit.dll</HintPath>
+    </Reference>
+    <Reference Include="MassTransit.RabbitMqTransport">
+      <HintPath>..\packages\MassTransit.RabbitMQ.5.5.4-develop.2097\lib\netstandard2.0\MassTransit.RabbitMqTransport.dll</HintPath>
+    </Reference>
+    <Reference Include="Converters">
+      <HintPath>..\packages\Xamarin.Forms.XAML.Utils.Converters.1.1.2\lib\netstandard1.0\Converters.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
