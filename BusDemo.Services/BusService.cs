@@ -86,7 +86,7 @@ namespace BusDemo.Services
         Task Send<T>(T message)
             where T : class;
 
-        void Subscribe<T>(MessageHandler<T> handler) 
+        void Subscribe<T>(Action<T> handler) 
             where T : class;
     }
 }
